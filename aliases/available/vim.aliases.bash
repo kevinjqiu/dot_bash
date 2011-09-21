@@ -1,7 +1,10 @@
 #!/bin/bash
-if [ $(uname) = "Linux" ]; then
-    alias mvim='gvim'
-fi
+case $OSTYPE in
+    linux*)
+        alias mvim='gvim'
+        ;;
+esac
 
-alias v='mvim --remote-tab'
-alias vv='vim'
+alias v='vim'
+alias vr='mvim --remote-tab'
+alias vv='mvim'
