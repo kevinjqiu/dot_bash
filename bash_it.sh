@@ -1,8 +1,13 @@
 #!/bin/bash
 # Initialize Bash It
+if [ $(uname) = "Linux" ]; then
+    BASH_FILE='~/.bashrc'
+else
+    BASH_FILE='~/.bash_profile'
+fi
 
 # Reload Library
-alias reload='source ~/.bash_profile'
+alias reload="source $BASH_FILE"
 
 # Load the framework
 
