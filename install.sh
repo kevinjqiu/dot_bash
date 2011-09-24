@@ -3,13 +3,23 @@ BASH="$HOME/.bash"
 
 ln -s `pwd` $BASH
 
-cp $HOME/.bash_profile $HOME/.bash_profile.bak
+case $OSTYPE in
+    linux*)
+        BASH_FILE=".bashrc"
+        ;;
+    darwin*)
+        BASH_FILE=".bash_profile"
+        ;;
+esac
 
-echo "Your original .bash_profile has been backed up to .bash_profile.bak"
 
-cp $BASH/template/bash_profile.template.bash $HOME/.bash_profile
+cp "$HOME/$BASH_FILE" "$HOME/$BASH_FILE.bak"
 
-echo "Copied the template .bash_profile into ~/.bash_profile, edit this file to customize bash-it"
+echo "Your original $BASH_FILE has been backed up to $BASH_FILE.bak"
+
+cp $BASH/template/bash_profile.template.bash $HOME/$BASH_FILE
+
+echo "Copied the template .bash_profile into ~/$BASH_FILE, edit this file to customize bash-it"
 
 while true
 do
