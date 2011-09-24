@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export BROWSER=/usr/bin/chromium
+
 # List directory contents
 alias sl=ls
 alias ls='ls -G'        # Compact view, show colors
@@ -14,6 +16,7 @@ alias _="sudo"
 if [ $(uname) = "Linux" ]
 then
   alias ls="ls --color=always"
+  alias open="$BROWSER &>/dev/null"
 fi
 which gshuf &> /dev/null
 if [ $? -eq 1 ]
