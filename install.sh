@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 BASH="$HOME/.bash"
 
-ln -s `pwd` $BASH
+[ ! -e $BASH ] && ln -s `pwd` $BASH
 
 case $OSTYPE in
     linux*)
