@@ -1815,3 +1815,5 @@ complete -o bashdefault -o default -o nospace -F _git git 2>/dev/null \
 	|| complete -o default -o nospace -F _git git
 complete -o bashdefault -o default -o nospace -F _gitk gitk 2>/dev/null \
 	|| complete -o default -o nospace -F _gitk gitk
+complete -o bashdefault -o default -o nospace -F _git g 2>/dev/null \
+	|| complete -o default -o nospace -F _git git
