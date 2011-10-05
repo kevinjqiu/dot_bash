@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export BROWSER=/usr/bin/chromium
+export BROWSER=/usr/bin/google-chrome
 
 # List directory contents
 alias sl=ls
