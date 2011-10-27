@@ -7,7 +7,6 @@ else
 fi
 
 # Reload Library
-alias reload="source $BASH_FILE"
 
 # Load the framework
 
@@ -55,6 +54,17 @@ do
   fi
 done
 
+# Load colors first so they can be use in base theme
+source "${BASH_IT}/themes/colors.theme.bash"
+source "${BASH_IT}/themes/base.theme.bash"
+
+# library
+[ -z "$BASH_IT" ] && export BASH_IT=$HOME/.bash_it
+LIB="${BASH_IT}/lib/*.bash"
+for config_file in $LIB
+do
+  source $config_file
+done
 
 unset config_file
 if [[ $PROMPT ]]; then
