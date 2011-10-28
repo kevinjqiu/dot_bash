@@ -23,6 +23,9 @@ do
   fi
 done
 
+# Only set $BASH_IT if it's not already set
+[ -z "$BASH_IT" ] && export BASH_IT=$HOME/.bash_it
+
 # Load enabled aliases, completion, plugins
 for file_type in "aliases" "completion" "plugins"
 do
@@ -59,7 +62,6 @@ source "${BASH_IT}/themes/colors.theme.bash"
 source "${BASH_IT}/themes/base.theme.bash"
 
 # library
-[ -z "$BASH_IT" ] && export BASH_IT=$HOME/.bash_it
 LIB="${BASH_IT}/lib/*.bash"
 for config_file in $LIB
 do
