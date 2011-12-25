@@ -1,7 +1,7 @@
 #!/bin/bash
 case $OSTYPE in
     linux*)
-        alias mvim='gvim'
+        alias mvim='gvim --sync'
         ;;
 esac
 
