@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# make sure virtualenvwrapper is enabled if availalbe
 [[ `which virtualenvwrapper.sh &>/dev/null` ]] && . virtualenvwrapper.sh
 
 # create a new virtualenv for this directory
