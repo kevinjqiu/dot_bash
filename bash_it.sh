@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Initialize Bash It
 if [ $(uname) = "Linux" ]; then
     BASH_FILE='~/.bashrc'

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 [[ `which virtualenvwrapper.sh &>/dev/null` ]] && . virtualenvwrapper.sh
 

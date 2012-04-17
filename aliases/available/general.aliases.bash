@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 export BROWSER=/usr/bin/google-chrome
 
