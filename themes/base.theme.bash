@@ -70,7 +70,7 @@ function scm_prompt_info {
 }
 
 function git_prompt_vars {
-  if [[ -n $(git status -s 2> /dev/null |grep -v ^# |grep -v "working directory clean") ]]; then
+  if [[ -n $(git diff-index --quiet HEAD 2> /dev/null) ]]; then
     SCM_DIRTY=1
      SCM_STATE=${GIT_THEME_PROMPT_DIRTY:-$SCM_THEME_PROMPT_DIRTY}
   else
