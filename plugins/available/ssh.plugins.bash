@@ -7,3 +7,6 @@ function add_ssh() {
 function sshlist() {
   awk '$1 ~ /Host$/ { print $2 }' ~/.ssh/config
 }
+
+export EC2_WEB=ubuntu@23.21.58.217
+export EC2_VPN=ubuntu@107.22.224.189
