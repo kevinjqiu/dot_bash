@@ -10,6 +10,15 @@ fi
 
 # Load the framework
 
+# Only set $BASH_IT if it's not already set
+if [ -z "$BASH_IT" ];
+then
+    # Setting $BASH to maintain backwards compatibility
+    # TODO: warn users that they should upgrade their .bash_profile
+    export BASH_IT=$BASH
+    export BASH=`bash -c 'echo $BASH'`
+fi
+
 # Load colors first so they can be use in base theme
 source "${BASH_IT}/themes/colors.theme.bash"
 source "${BASH_IT}/themes/base.theme.bash"
@@ -22,15 +31,6 @@ do
     source $config_file
   fi
 done
-
-# Only set $BASH_IT if it's not already set
-if [ -z "$BASH_IT" ];
-then
-    # Setting $BASH to maintain backwards compatibility
-    # TODO: warn users that they should upgrade their .bash_profile
-    export BASH_IT=$BASH
-    export BASH=`bash -c 'echo $BASH'`
-fi
 
 # For backwards compatibility, look in old BASH_THEME location
 if [ -z "$BASH_IT_THEME" ];
