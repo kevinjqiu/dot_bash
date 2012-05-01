@@ -59,13 +59,15 @@ $(doubletime_scm_prompt)$reset_color $ "
 PROMPT_COMMAND=prompt_setter
 
 git_prompt_status() {
-  if [ -n "$(git status 2> /dev/null | grep 'Changes not staged')" ]; then
+  local git_status_output
+  git_status_output=$(git status 2> /dev/null )
+  if [ -n "$(echo $git_status_output | grep 'Changes not staged')" ]; then
     git_status="${bold_red}$(scm_prompt_info) ✗"
-  elif [ -n "$(git status 2> /dev/null | grep 'Changes to be committed')" ]; then
+  elif [ -n "$(echo $git_status_output | grep 'Changes to be committed')" ]; then
      git_status="${bold_yellow}$(scm_prompt_info) ^"
-  elif [ -n "$(git status 2> /dev/null | grep 'Untracked files')" ]; then
+  elif [ -n "$(echo $git_status_output | grep 'Untracked files')" ]; then
      git_status="${bold_cyan}$(scm_prompt_info) +"
-  elif [ -n "$(git status 2> /dev/null | grep 'nothing to commit')" ]; then
+  elif [ -n "$(echo $git_status_output | grep 'nothing to commit')" ]; then
      git_status="${bold_green}$(scm_prompt_info) ${green}✓"
   else
     git_status="$(scm_prompt_info)"
