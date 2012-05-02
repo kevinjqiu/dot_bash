@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 BASH="$HOME/.bash"
+BASH_IT=$BASH
 
 [ ! -e $BASH ] && ln -s `pwd` $BASH
 
