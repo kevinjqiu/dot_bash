@@ -29,7 +29,7 @@ fi
 
 function doubletime_scm_prompt() {
   scm
-  if [ $SCM = $SCM_NONE_CHAR ]; then
+  if [ $SCM = $SCM_NONE ]; then
       return
   elif [ $SCM = $SCM_GIT ]; then
       echo "$(git_prompt_status)"
