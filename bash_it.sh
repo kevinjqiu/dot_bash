@@ -19,10 +19,6 @@ then
     export BASH=`bash -c 'echo $BASH'`
 fi
 
-# Load colors first so they can be use in base theme
-source "${BASH_IT}/themes/colors.theme.bash"
-source "${BASH_IT}/themes/base.theme.bash"
-
 # Library
 LIB="${BASH_IT}/lib/*.bash"
 for config_file in $LIB
