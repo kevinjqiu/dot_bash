@@ -37,7 +37,7 @@ then
 fi
 
 # Load composure first, so we support function metadata
-source "${BASH_IT}/lib/composure.sh"
+# source "${BASH_IT}/lib/composure.sh"
 
 # Load colors first so they can be use in base theme
 source "${BASH_IT}/themes/colors.theme.bash"
