@@ -40,4 +40,5 @@ export TODO="t"
 #export VCPROMPT_EXECUTABLE=~/.vcprompt/bin/vcprompt
 
 # Load Bash It
+export TERM=xterm-256color
 source $BASH/bash_it.sh
