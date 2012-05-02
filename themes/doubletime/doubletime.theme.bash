@@ -27,14 +27,14 @@ else
     THEME_PROMPT_HOST_COLOR="$blue"
 fi
 
-doubletime_scm_prompt() {
-  CHAR=$(scm_char)
-  if [ $CHAR = $SCM_NONE_CHAR ]; then
-    return
-  elif [ $CHAR = $SCM_GIT_CHAR ]; then
-    echo "$(git_prompt_status)"
+function doubletime_scm_prompt() {
+  scm
+  if [ $SCM = $SCM_NONE_CHAR ]; then
+      return
+  elif [ $SCM = $SCM_GIT ]; then
+      echo "$(git_prompt_status)"
   else
-    echo "[$(scm_prompt_info)]"
+      echo "[$(scm_prompt_info)]"
   fi
 }
 
