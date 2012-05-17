@@ -31,7 +31,7 @@ fi
 # source "${BASH_IT}/lib/composure.sh"
 
 # Load colors first so they can be use in base theme
-source "${BASH_IT}/themes/colors.theme.bash"
+# source "${BASH_IT}/themes/colors.theme.bash"
 source "${BASH_IT}/themes/base.theme.bash"
 
 # Load enabled aliases, completion, plugins
@@ -70,6 +70,7 @@ do
 done
 
 unset config_file
+unset base_name
 if [[ $PROMPT ]]; then
     export PS1=$PROMPT
 fi
