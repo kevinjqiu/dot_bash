@@ -10,15 +10,6 @@ then
     export BASH=`bash -c 'echo $BASH'`
 fi
 
-# Library
-LIB="${BASH_IT}/lib/*.bash"
-for config_file in $LIB
-do
-  if [ -e "${config_file}" ]; then
-    source $config_file
-  fi
-done
-
 # For backwards compatibility, look in old BASH_THEME location
 if [ -z "$BASH_IT_THEME" ];
 then
@@ -33,6 +24,15 @@ fi
 # Load colors first so they can be use in base theme
 source "${BASH_IT}/themes/colors.theme.bash"
 source "${BASH_IT}/themes/base.theme.bash"
+
+# Library
+LIB="${BASH_IT}/lib/*.bash"
+for config_file in $LIB
+do
+  if [ -e "${config_file}" ]; then
+    source $config_file
+  fi
+done
 
 # Load enabled aliases, completion, plugins
 # Load aliases

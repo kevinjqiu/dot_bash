@@ -146,7 +146,7 @@ function virtualenv_prompt {
 # backwards-compatibility
 function git_prompt_info {
   git_prompt_vars
-  echo -e "$SCM_PREFIX$SCM_BRANCH$SCM_STATE$SCM_SUFFIX"
+  echo -e "$SCM_PREFIX$SCM_BRANCH$SCM_SUFFIX"
 }
 
 function svn_prompt_info {
