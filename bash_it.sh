@@ -39,19 +39,19 @@ source "${BASH_IT}/themes/base.theme.bash"
 ALIASES="bundler freshbooks git hg maven rails todo.txt-cli emacs general heroku homebrew osx textmate vim"
 for base_name in $ALIASES
 do
-    source ${BASH_IT}/aliases/available/${base_name}.aliases.bash
+    source ${BASH_IT}/aliases/${base_name}.aliases.bash
 done
 
 COMPLETIONS="brew fabric git rake tmux defaults gem git_flow ssh todo"
 for base_name in $COMPLETIONS
 do
-    source ${BASH_IT}/completion/available/${base_name}.completion.bash
+    source ${BASH_IT}/completion/${base_name}.completion.bash
 done
 
 PLUGINS="base dirs browser extract git hg osx python ruby ssh tmux virtualenv"
 for base_name in $PLUGINS
 do
-    source ${BASH_IT}/plugins/available/${base_name}.plugin.bash
+    source ${BASH_IT}/plugins/${base_name}.plugin.bash
 done
 
 # Load any custom aliases that the user has added
