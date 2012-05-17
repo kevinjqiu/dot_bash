@@ -1,15 +1,6 @@
 #!/usr/bin/env bash
-# Initialize Bash It
-if [ $(uname) = "Linux" ]; then
-    BASH_FILE='~/.bashrc'
-else
-    BASH_FILE='~/.bash_profile'
-fi
-
-# Reload Library
 
 # Load the framework
-
 # Only set $BASH_IT if it's not already set
 if [ -z "$BASH_IT" ];
 then
@@ -43,17 +34,24 @@ fi
 source "${BASH_IT}/themes/colors.theme.bash"
 source "${BASH_IT}/themes/base.theme.bash"
 
-# library
-LIB="${BASH_IT}/lib/*.bash"
-for config_file in $LIB
+# Load enabled aliases, completion, plugins
+# Load aliases
+ALIASES="bundler freshbooks git hg maven rails todo.txt-cli emacs general heroku homebrew osx textmate vim"
+for base_name in $ALIASES
 do
-  source $config_file
+    source ${BASH_IT}/aliases/available/${base_name}.aliases.bash
 done
 
-# Load enabled aliases, completion, plugins
-for file_type in "aliases" "completion" "plugins"
+COMPLETIONS="brew fabric git rake tmux defaults gem git_flow ssh todo"
+for base_name in $COMPLETIONS
 do
-  _load_bash_it_files $file_type
+    source ${BASH_IT}/completion/available/${base_name}.completion.bash
+done
+
+PLUGINS="base dirs browser extract git hg osx python ruby ssh tmux virtualenv"
+for base_name in $PLUGINS
+do
+    source ${BASH_IT}/plugins/available/${base_name}.plugin.bash
 done
 
 # Load any custom aliases that the user has added
