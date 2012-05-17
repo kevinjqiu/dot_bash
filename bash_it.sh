@@ -36,7 +36,7 @@ source "${BASH_IT}/themes/base.theme.bash"
 
 # Load enabled aliases, completion, plugins
 # Load aliases
-ALIASES="bundler freshbooks git hg maven rails todo.txt-cli emacs general heroku homebrew osx textmate vim"
+ALIASES="freshbooks git hg maven rails general homebrew osx vim"
 for base_name in $ALIASES
 do
     source ${BASH_IT}/aliases/${base_name}.aliases.bash
