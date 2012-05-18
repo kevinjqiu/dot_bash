@@ -26,32 +26,30 @@ source "${BASH_IT}/themes/colors.theme.bash"
 source "${BASH_IT}/themes/base.theme.bash"
 
 # Library
-LIB="${BASH_IT}/lib/*.bash"
-for config_file in $LIB
+LIBS="appearance history composure"
+for config_file in $LIBS
 do
-  if [ -e "${config_file}" ]; then
-    source $config_file
-  fi
+  source ${BASH_IT}/lib/${config_file}.bash
 done
 
 # Load enabled aliases, completion, plugins
 # Load aliases
 ALIASES="freshbooks git hg maven rails general homebrew osx vim"
-for base_name in $ALIASES
+for config_file in $ALIASES
 do
-    source ${BASH_IT}/aliases/${base_name}.aliases.bash
+    source ${BASH_IT}/aliases/${config_file}.aliases.bash
 done
 
 COMPLETIONS="brew fabric git rake tmux defaults gem git_flow ssh todo"
-for base_name in $COMPLETIONS
+for config_file in $COMPLETIONS
 do
-    source ${BASH_IT}/completion/${base_name}.completion.bash
+    source ${BASH_IT}/completion/${config_file}.completion.bash
 done
 
 PLUGINS="base dirs browser extract git hg osx python ruby ssh tmux virtualenv"
-for base_name in $PLUGINS
+for config_file in $PLUGINS
 do
-    source ${BASH_IT}/plugins/${base_name}.plugin.bash
+    source ${BASH_IT}/plugins/${config_file}.plugin.bash
 done
 
 # Load any custom aliases that the user has added
@@ -64,13 +62,10 @@ fi
 CUSTOM="${BASH_IT}/custom/*.bash"
 for config_file in $CUSTOM
 do
-  if [ -e "${config_file}" ]; then
-    source $config_file
-  fi
+  source $config_file
 done
 
 unset config_file
-unset base_name
 if [[ $PROMPT ]]; then
     export PS1=$PROMPT
 fi
@@ -81,7 +76,6 @@ PREVIEW="less"
 [ -s /Applications/Preview.app ] && PREVIEW="/Applications/Preview.app"
 
 # Load all the Jekyll stuff
-
 if [ -e $HOME/.jekyllconfig ]
 then
   . $HOME/.jekyllconfig
