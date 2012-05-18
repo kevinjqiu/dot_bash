@@ -36,9 +36,16 @@
 # If set to "false" command "fab --shortlist" will be executed every time.
 export FAB_COMPLETION_CACHE_TASKS=true
 
+case $OSTYPE in
+    linux*)
+        MD5=md5sum
+        ;;
+    darwin*)
+        MD5=md5
+        ;;
+esac
 # File name where tasks cache will be stored (in current dir).
-export FAB_COMPLETION_CACHED_TASKS_FILENAME="/tmp/fab_tasks$(pwd | md5sum | cut -d' ' -f1)"
-
+export FAB_COMPLETION_CACHED_TASKS_FILENAME="/tmp/fab_tasks$(pwd | $MD5 | cut -d' ' -f1)"
 
 # Set command to get time of last file modification as seconds since Epoch
 case `uname` in
