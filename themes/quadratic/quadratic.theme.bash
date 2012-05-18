@@ -7,6 +7,7 @@ bold_green="$(color green bold)"
 red="$(color red)"
 yellow="$(color yellow)"
 green="$(color green)"
+blue="$(color blue)"
 normal="$(color reset)"
 reset_color="$(__make_ansi '' 39)"
 
