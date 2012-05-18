@@ -26,7 +26,7 @@ source "${BASH_IT}/themes/colors.theme.bash"
 source "${BASH_IT}/themes/base.theme.bash"
 
 # Library
-LIBS="appearance history composure"
+LIBS="appearance history"
 for config_file in $LIBS
 do
   source ${BASH_IT}/lib/${config_file}.bash

@@ -37,7 +37,7 @@
 export FAB_COMPLETION_CACHE_TASKS=true
 
 # File name where tasks cache will be stored (in current dir).
-export FAB_COMPLETION_CACHED_TASKS_FILENAME=".fab_tasks~"
+export FAB_COMPLETION_CACHED_TASKS_FILENAME="/tmp/fab_tasks$(pwd | md5sum | cut -d' ' -f1)"
 
 
 # Set command to get time of last file modification as seconds since Epoch
@@ -115,8 +115,7 @@ function __fab_completion() {
                     # If use cache
                     if [[ ! -s ${FAB_COMPLETION_CACHED_TASKS_FILENAME} ||
                           $(__fab_fabfile_mtime) -gt $(__fab_chache_mtime) ]]; then
-                        fab --shortlist > ${FAB_COMPLETION_CACHED_TASKS_FILENAME} \
-                            2> /dev/null
+                        fab --shortlist > ${FAB_COMPLETION_CACHED_TASKS_FILENAME} 2> /dev/null
                     fi
                     opts=$(cat ${FAB_COMPLETION_CACHED_TASKS_FILENAME})
                 else
