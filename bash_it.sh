@@ -40,7 +40,7 @@ do
     source ${BASH_IT}/aliases/${config_file}.aliases.bash
 done
 
-COMPLETIONS="brew fabric git rake tmux defaults gem git_flow ssh todo"
+COMPLETIONS="brew fabric git rake tmux defaults gem git_flow ssh todo ubuntu"
 for config_file in $COMPLETIONS
 do
     source ${BASH_IT}/completion/${config_file}.completion.bash
