@@ -182,209 +182,209 @@ function echo_color {
 }
 
 
-# black="$(color black)"
-# red="$(color red)"
-# green="$(color green)"
-# yellow="$(color yellow)"
-# blue="$(color blue)"
-# purple="$(color magenta)"
-# cyan="$(color cyan)"
-# white="$(color white bold)"
-# orange="$(color red fg bright)"
-# 
-# bold_black="$(color black bold)"
-# bold_red="$(color red bold)"
-# bold_green="$(color green bold)"
-# bold_yellow="$(color yellow bold)"
-# bold_blue="$(color blue bold)"
-# bold_purple="$(color magenta bold)"
-# bold_cyan="$(color cyan bold)"
-# bold_white="$(color white bold)"
-# bold_orange="$(color red fg bright bold)"
-# 
-# underline_black="$(color black underline)"
-# underline_red="$(color red underline)"
-# underline_green="$(color green underline)"
-# underline_yellow="$(color yellow underline)"
-# underline_blue="$(color blue underline)"
-# underline_purple="$(color magenta underline)"
-# underline_cyan="$(color cyan underline)"
-# underline_white="$(color white underline)"
-# underline_orange="$(color red fg bright underline)"
-# 
-# background_black="$(color black bg)"
-# background_red="$(color red bg)"
-# background_green="$(color green bg)"
-# background_yellow="$(color yellow bg)"
-# background_blue="$(color blue bg)"
-# background_purple="$(color magenta bg)"
-# background_cyan="$(color cyan bg)"
-# background_white="$(color white bg bold)"
-# background_orange="$(color red bg bright)"
-# 
-# normal="$(color reset)"
-# reset_color="$(__make_ansi '' 39)"
-# 
-# # These colors are meant to be used with `echo -e`
-# echo_black="$(echo_color black)"
-# echo_red="$(echo_color red)"
-# echo_green="$(echo_color green)"
-# echo_yellow="$(echo_color yellow)"
-# echo_blue="$(echo_color blue)"
-# echo_purple="$(echo_color magenta)"
-# echo_cyan="$(echo_color cyan)"
-# echo_white="$(echo_color white bold)"
-# echo_orange="$(echo_color red fg bright)"
-# 
-# 
-# echo_bold_black="\033[1;30m"
-# echo_bold_red="\033[1;31m"
-# echo_bold_green="\033[1;32m"
-# echo_bold_yellow="\033[1;33m"
-# echo_bold_blue="\033[1;34m"
-# echo_bold_purple="\033[1;35m"
-# echo_bold_cyan="\033[1;36m"
-# echo_bold_white="\033[1;37m"
-# echo_bold_orange="\033[1;33;40m"
-# 
-# echo_underline_black="\033[4;30m"
-# echo_underline_red="\033[4;31m"
-# echo_underline_green="\033[4;32m"
-# echo_underline_yellow="\033[4;33m"
-# echo_underline_blue="\033[4;34m"
-# echo_underline_purple="\033[4;35m"
-# echo_underline_cyan="\033[4;36m"
-# echo_underline_white="\033[4;37m"
-# echo_underline_orange="\033[4;33;40m"
-# 
-# echo_background_black="\033[40m"
-# echo_background_red="\033[41m"
-# echo_background_green="\033[42m"
-# echo_background_yellow="\033[43m"
-# echo_background_blue="\033[44m"
-# echo_background_purple="\033[45m"
-# echo_background_cyan="\033[46m"
-# echo_background_white="\033[47m"
-# 
-# function __color_normal_bg {
-#   echo "4$1"
-# }
-# 
-# function __color_bright_fg {
-#   echo "9$1"
-# }
-# 
-# function __color_bright_bg {
-#   echo "10$1"
-# }
-# 
-# 
-# function __color_black   {
-#   echo "0"
-# }
-# 
-# function __color_red   {
-#   echo "1"
-# }
-# 
-# function __color_green   {
-#   echo "2"
-# }
-# 
-# function __color_yellow  {
-#   echo "3"
-# }
-# 
-# function __color_blue  {
-#   echo "4"
-# }
-# 
-# function __color_magenta {
-#   echo "5"
-# }
-# 
-# function __color_cyan  {
-#   echo "6"
-# }
-# 
-# function __color_white   {
-#   echo "7"
-# }
-# 
-# function __color_rgb {
-#   r=$1 && g=$2 && b=$3
-#   [[ r == g && g == b ]] && echo $(( $r / 11 + 232 )) && return # gray range above 232
-#   echo "8;5;$(( ($r * 36  + $b * 6 + $g) / 51 + 16 ))"
-# }
-# 
-# function __color {
-#   color=$1 && shift
-#   case "$1" in
-#     fg|bg) side="$1" && shift ;;
-#     *) side=fg;;
-#   esac
-#   case "$1" in
-#     normal|bright) mode="$1" && shift;;
-#     *) mode=normal;;
-#   esac
-#   [[ $color == "rgb" ]] && rgb="$1 $2 $3" && shift 3
-# 
-#   next=$1 && shift
-#   out="$(__$next $@)"
-#   echo "$(__color_${mode}_${side} $(__color_${color} $rgb))${out:+;${out}}"
-# }
-# 
-# 
-# function __black   {
-#   echo "$(__color black $@)"
-# }
-# 
-# function __red   {
-#   echo "$(__color red $@)"
-# }
-# 
-# function __green   {
-#   echo "$(__color green $@)"
-# }
-# 
-# function __yellow  {
-#   echo "$(__color yellow $@)"
-# }
-# 
-# function __blue  {
-#   echo "$(__color blue $@)"
-# }
-# 
-# function __magenta {
-#   echo "$(__color magenta $@)"
-# }
-# 
-# function __cyan  {
-#   echo "$(__color cyan $@)"
-# }
-# 
-# function __white   {
-#   echo "$(__color white $@)"
-# }
-# 
-# function __rgb {
-#   echo "$(__color rgb $@)"
-# }
-# 
-# 
-# function __color_parse {
-#   next=$1 && shift
-#   echo "$(__$next $@)"
-# }
-# 
-# function color {
-#   echo "$(__color_parse make_ansi $@)"
-# }
-# 
-# function echo_color {
-#   echo "$(__color_parse make_echo $@)"
-# }
-# 
+black="$(color black)"
+red="$(color red)"
+green="$(color green)"
+yellow="$(color yellow)"
+blue="$(color blue)"
+purple="$(color magenta)"
+cyan="$(color cyan)"
+white="$(color white bold)"
+orange="$(color red fg bright)"
+
+bold_black="$(color black bold)"
+bold_red="$(color red bold)"
+bold_green="$(color green bold)"
+bold_yellow="$(color yellow bold)"
+bold_blue="$(color blue bold)"
+bold_purple="$(color magenta bold)"
+bold_cyan="$(color cyan bold)"
+bold_white="$(color white bold)"
+bold_orange="$(color red fg bright bold)"
+
+underline_black="$(color black underline)"
+underline_red="$(color red underline)"
+underline_green="$(color green underline)"
+underline_yellow="$(color yellow underline)"
+underline_blue="$(color blue underline)"
+underline_purple="$(color magenta underline)"
+underline_cyan="$(color cyan underline)"
+underline_white="$(color white underline)"
+underline_orange="$(color red fg bright underline)"
+
+background_black="$(color black bg)"
+background_red="$(color red bg)"
+background_green="$(color green bg)"
+background_yellow="$(color yellow bg)"
+background_blue="$(color blue bg)"
+background_purple="$(color magenta bg)"
+background_cyan="$(color cyan bg)"
+background_white="$(color white bg bold)"
+background_orange="$(color red bg bright)"
+
+normal="$(color reset)"
+reset_color="$(__make_ansi '' 39)"
+
+# These colors are meant to be used with `echo -e`
+echo_black="$(echo_color black)"
+echo_red="$(echo_color red)"
+echo_green="$(echo_color green)"
+echo_yellow="$(echo_color yellow)"
+echo_blue="$(echo_color blue)"
+echo_purple="$(echo_color magenta)"
+echo_cyan="$(echo_color cyan)"
+echo_white="$(echo_color white bold)"
+echo_orange="$(echo_color red fg bright)"
+
+
+echo_bold_black="\033[1;30m"
+echo_bold_red="\033[1;31m"
+echo_bold_green="\033[1;32m"
+echo_bold_yellow="\033[1;33m"
+echo_bold_blue="\033[1;34m"
+echo_bold_purple="\033[1;35m"
+echo_bold_cyan="\033[1;36m"
+echo_bold_white="\033[1;37m"
+echo_bold_orange="\033[1;33;40m"
+
+echo_underline_black="\033[4;30m"
+echo_underline_red="\033[4;31m"
+echo_underline_green="\033[4;32m"
+echo_underline_yellow="\033[4;33m"
+echo_underline_blue="\033[4;34m"
+echo_underline_purple="\033[4;35m"
+echo_underline_cyan="\033[4;36m"
+echo_underline_white="\033[4;37m"
+echo_underline_orange="\033[4;33;40m"
+
+echo_background_black="\033[40m"
+echo_background_red="\033[41m"
+echo_background_green="\033[42m"
+echo_background_yellow="\033[43m"
+echo_background_blue="\033[44m"
+echo_background_purple="\033[45m"
+echo_background_cyan="\033[46m"
+echo_background_white="\033[47m"
+
+function __color_normal_bg {
+  echo "4$1"
+}
+
+function __color_bright_fg {
+  echo "9$1"
+}
+
+function __color_bright_bg {
+  echo "10$1"
+}
+
+
+function __color_black   {
+  echo "0"
+}
+
+function __color_red   {
+  echo "1"
+}
+
+function __color_green   {
+  echo "2"
+}
+
+function __color_yellow  {
+  echo "3"
+}
+
+function __color_blue  {
+  echo "4"
+}
+
+function __color_magenta {
+  echo "5"
+}
+
+function __color_cyan  {
+  echo "6"
+}
+
+function __color_white   {
+  echo "7"
+}
+
+function __color_rgb {
+  r=$1 && g=$2 && b=$3
+  [[ r == g && g == b ]] && echo $(( $r / 11 + 232 )) && return # gray range above 232
+  echo "8;5;$(( ($r * 36  + $b * 6 + $g) / 51 + 16 ))"
+}
+
+function __color {
+  color=$1 && shift
+  case "$1" in
+    fg|bg) side="$1" && shift ;;
+    *) side=fg;;
+  esac
+  case "$1" in
+    normal|bright) mode="$1" && shift;;
+    *) mode=normal;;
+  esac
+  [[ $color == "rgb" ]] && rgb="$1 $2 $3" && shift 3
+
+  next=$1 && shift
+  out="$(__$next $@)"
+  echo "$(__color_${mode}_${side} $(__color_${color} $rgb))${out:+;${out}}"
+}
+
+
+function __black   {
+  echo "$(__color black $@)"
+}
+
+function __red   {
+  echo "$(__color red $@)"
+}
+
+function __green   {
+  echo "$(__color green $@)"
+}
+
+function __yellow  {
+  echo "$(__color yellow $@)"
+}
+
+function __blue  {
+  echo "$(__color blue $@)"
+}
+
+function __magenta {
+  echo "$(__color magenta $@)"
+}
+
+function __cyan  {
+  echo "$(__color cyan $@)"
+}
+
+function __white   {
+  echo "$(__color white $@)"
+}
+
+function __rgb {
+  echo "$(__color rgb $@)"
+}
+
+
+function __color_parse {
+  next=$1 && shift
+  echo "$(__$next $@)"
+}
+
+function color {
+  echo "$(__color_parse make_ansi $@)"
+}
+
+function echo_color {
+  echo "$(__color_parse make_echo $@)"
+}
+
 # 
 # black="$(color reset black)"
 # red="$(color reset red)"

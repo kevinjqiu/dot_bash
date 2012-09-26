@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
 
-bold_cyan="$(color cyan bold)"
-bold_red="$(color red bold)"
-bold_yellow="$(color yellow bold)"
-bold_green="$(color green bold)"
-red="$(color red)"
-yellow="$(color yellow)"
-green="$(color green)"
-blue="$(color blue)"
-normal="$(color reset)"
-reset_color="$(__make_ansi '' 39)"
+bold_cyan="\[\e[36;1m\]"
+bold_red="\[\e[31;1m\]"
+bold_yellow="\[\e[33;1m\]"
+bold_green="\[\e[32;1m\]"
+red="\[\e[31m\]"
+yellow="\[\e[33m\]"
+green="\[\e[32m\]"
+blue="\[\e[34m\]"
+normal="\[\e[0m\]"
+reset_color="\[\e[39m\]"
 
 SCM_THEME_PROMPT_DIRTY=''
 SCM_THEME_PROMPT_CLEAN=''
