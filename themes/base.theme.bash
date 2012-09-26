@@ -12,30 +12,30 @@ SCM_GIT_CHAR='±'
 SCM_HG='hg'
 SCM_HG_CHAR='☿'
 
-SCM_SVN='svn'
-SCM_SVN_CHAR='⑆'
+# SCM_SVN='svn'
+# SCM_SVN_CHAR='⑆'
 
 SCM_NONE='NONE'
 SCM_NONE_CHAR='○'
 
-RVM_THEME_PROMPT_PREFIX=' |'
-RVM_THEME_PROMPT_SUFFIX='|'
+# RVM_THEME_PROMPT_PREFIX=' |'
+# RVM_THEME_PROMPT_SUFFIX='|'
 
 VIRTUALENV_THEME_PROMPT_PREFIX=' |'
 VIRTUALENV_THEME_PROMPT_SUFFIX='|'
 
-RBENV_THEME_PROMPT_PREFIX=' |'
-RBENV_THEME_PROMPT_SUFFIX='|'
+# RBENV_THEME_PROMPT_PREFIX=' |'
+# RBENV_THEME_PROMPT_SUFFIX='|'
 
-RBFU_THEME_PROMPT_PREFIX=' |'
-RBFU_THEME_PROMPT_SUFFIX='|'
+# RBFU_THEME_PROMPT_PREFIX=' |'
+# RBFU_THEME_PROMPT_SUFFIX='|'
 
 function scm {
   if [[ -d .git ]]; then SCM=$SCM_GIT
   elif [[ -n "$(git symbolic-ref HEAD 2> /dev/null)" ]]; then SCM=$SCM_GIT
   elif [[ -d .hg ]]; then SCM=$SCM_HG
   elif [[ -n "$(hg root 2> /dev/null)" ]]; then SCM=$SCM_HG
-  elif [[ -d .svn ]]; then SCM=$SCM_SVN
+  # elif [[ -d .svn ]]; then SCM=$SCM_SVN
   else SCM=$SCM_NONE
   fi
 }
@@ -44,7 +44,7 @@ function scm_prompt_char {
   if [[ -z $SCM ]]; then scm; fi
   if [[ $SCM == $SCM_GIT ]]; then SCM_CHAR=$SCM_GIT_CHAR
   elif [[ $SCM == $SCM_HG ]]; then SCM_CHAR=$SCM_HG_CHAR
-  elif [[ $SCM == $SCM_SVN ]]; then SCM_CHAR=$SCM_SVN_CHAR
+  # elif [[ $SCM == $SCM_SVN ]]; then SCM_CHAR=$SCM_SVN_CHAR
   else SCM_CHAR=$SCM_NONE_CHAR
   fi
 }
@@ -56,7 +56,7 @@ function scm_prompt_vars {
   SCM_STATE=''
   [[ $SCM == $SCM_GIT ]] && git_prompt_vars && return
   [[ $SCM == $SCM_HG ]] && hg_prompt_vars && return
-  [[ $SCM == $SCM_SVN ]] && svn_prompt_vars && return
+  # [[ $SCM == $SCM_SVN ]] && svn_prompt_vars && return
 }
 
 function scm_prompt_info {
@@ -66,7 +66,7 @@ function scm_prompt_info {
   SCM_STATE=''
   [[ $SCM == $SCM_GIT ]] && git_prompt_info && return
   [[ $SCM == $SCM_HG ]] && hg_prompt_info && return
-  [[ $SCM == $SCM_SVN ]] && svn_prompt_info && return
+  # [[ $SCM == $SCM_SVN ]] && svn_prompt_info && return
 }
 
 function git_prompt_vars {
@@ -119,18 +119,18 @@ function hg_prompt_vars {
 #   fi
 # }
 
-function rbenv_version_prompt {
-  if which rbenv &> /dev/null; then
-    rbenv=$(rbenv version-name) || return
-    echo -e "$RBENV_THEME_PROMPT_PREFIX$rbenv$RBENV_THEME_PROMPT_SUFFIX"
-  fi
-}
+# function rbenv_version_prompt {
+#   if which rbenv &> /dev/null; then
+#     rbenv=$(rbenv version-name) || return
+#     echo -e "$RBENV_THEME_PROMPT_PREFIX$rbenv$RBENV_THEME_PROMPT_SUFFIX"
+#   fi
+# }
 
-function rbfu_version_prompt {
-  if [[ $RBFU_RUBY_VERSION ]]; then
-    echo -e "${RBFU_THEME_PROMPT_PREFIX}${RBFU_RUBY_VERSION}${RBFU_THEME_PROMPT_SUFFIX}"
-  fi
-}
+# function rbfu_version_prompt {
+#   if [[ $RBFU_RUBY_VERSION ]]; then
+#     echo -e "${RBFU_THEME_PROMPT_PREFIX}${RBFU_RUBY_VERSION}${RBFU_THEME_PROMPT_SUFFIX}"
+#   fi
+# }
 
 # function ruby_version_prompt {
 #   echo -e "$(rbfu_version_prompt)$(rbenv_version_prompt)$(rvm_version_prompt)"
