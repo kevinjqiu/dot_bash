@@ -29,52 +29,6 @@ usage
 }
 
 
-# pipe hot spicy interwebs into textmate and cleanup!
-#
-# Usage: wmate
-# wget into a pipe into TextMate and force Tidy (you can undo in textmate)
-# e.g.
-# $ wmate google.com
-
-function wmate() {
-    if [ -t 0 ]; then
-        if [ -n "$1" ]; then
-            wget -qO- $1 | /usr/bin/mate
-
-TIDY=`/usr/bin/osascript << EOT
-tell application "TextMate"
-	activate
-end tell
-
-tell application "System Events"
-	tell process "TextMate"
-		tell menu bar 1
-			tell menu bar item "Bundles"
-				tell menu "Bundles"
-					tell menu item "HTML"
-						tell menu "HTML"
-							click menu item "Tidy"
-						end tell
-					end tell
-				end tell
-			end tell
-		end tell
-	end tell
-end tell
-EOT`
-
-        else
-            cat <<usage
-Usage: wmate google.com
-wget into a pipe into TextMate and force Tidy (you can undo in textmate)
-
-$ wmate google.com
-usage
-
-      fi
-    fi
-}
-
 #
 # Usage: raw google.com
 # wget into a temp file and pump it into your browser
