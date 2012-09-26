@@ -112,12 +112,12 @@ function hg_prompt_vars {
     SCM_CHANGE=$(hg summary 2> /dev/null | grep parent | awk '{print $2}')
 }
 
-function rvm_version_prompt {
-  if which rvm &> /dev/null; then
-    rvm=$(rvm tools identifier) || return
-    echo -e "$RVM_THEME_PROMPT_PREFIX$rvm$RVM_THEME_PROMPT_SUFFIX"
-  fi
-}
+# function rvm_version_prompt {
+#   if which rvm &> /dev/null; then
+#     rvm=$(rvm tools identifier) || return
+#     echo -e "$RVM_THEME_PROMPT_PREFIX$rvm$RVM_THEME_PROMPT_SUFFIX"
+#   fi
+# }
 
 function rbenv_version_prompt {
   if which rbenv &> /dev/null; then
@@ -132,9 +132,9 @@ function rbfu_version_prompt {
   fi
 }
 
-function ruby_version_prompt {
-  echo -e "$(rbfu_version_prompt)$(rbenv_version_prompt)$(rvm_version_prompt)"
-}
+# function ruby_version_prompt {
+#   echo -e "$(rbfu_version_prompt)$(rbenv_version_prompt)$(rvm_version_prompt)"
+# }
 
 function virtualenv_prompt {
   if which virtualenv &> /dev/null; then
