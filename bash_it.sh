@@ -33,7 +33,7 @@ do
 done
 
 # Load enabled aliases, completion, plugins
-ALIASES="freshbooks git hg maven rails general homebrew osx vim"
+ALIASES="points git hg maven rails general homebrew osx vim"
 for config_file in $ALIASES
 do
     source ${BASH_IT}/aliases/${config_file}.aliases.bash
