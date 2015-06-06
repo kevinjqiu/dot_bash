@@ -1,2 +1,2 @@
 #! /bin/bash
-alias ptsvpn='sudo openvpn ~/.ovpn/kevin.qiu.ovpn'
+alias ptsvpn='cd ~/.ovpn && sudo openvpn kevin.qiu.ovpn'
