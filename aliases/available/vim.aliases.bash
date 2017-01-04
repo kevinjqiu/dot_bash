@@ -7,6 +7,8 @@ MVIM=$(command -v mvim)
 
 [[ -n $VIM ]] && alias v=$VIM
 
+alias vv=$GVIM
+
 # open vim in new tab is taken from
 # http://stackoverflow.com/questions/936501/let-gvim-always-run-a-single-instancek
 case $OSTYPE in
