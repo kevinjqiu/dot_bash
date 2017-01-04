@@ -165,6 +165,25 @@ else
   load_one plugins base.plugin.bash
   load_one plugins alias-completion.plugin.bash
   load_one aliases general.aliases.bash
+
+  aliases="ag ansible apt clipboard docker docker-compose git tmux vagrant vim"
+  for alias_ in $aliases
+  do
+      load_one aliases ${alias_}.aliases.bash
+  done
+
+  completions="awscli docker docker-compose docker-machine fabric-completion gem git go kubectl makefile npm packer pip ssh terraform tmux vagrant"
+  for completion in $completions
+  do
+      load_one completion ${completion}.completion.bash
+  done
+
+  plugins="aws browser docker explain extract git go ssh tmux"
+  for plugin in $plugins
+  do
+      load_one plugins ${plugin}.plugin.bash
+  done
+
 fi
 
 echo ""

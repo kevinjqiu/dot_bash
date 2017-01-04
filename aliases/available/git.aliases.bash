@@ -13,6 +13,7 @@ alias gftv='git fetch --all --prune --tags --verbose'
 alias gus='git reset HEAD'
 alias gpristine='git reset --hard && git clean -dfx'
 alias gclean='git clean -fd'
+alias gd='git diff'
 alias gm="git merge"
 alias g='git'
 alias get='git'
@@ -74,19 +75,3 @@ case $OSTYPE in
     alias gtls='git tag -l | sort -V'
     ;;
 esac
-
-if [ -z "$EDITOR" ]; then
-    case $OSTYPE in
-      linux*)
-        alias gd='git diff | vim -R -'
-        ;;
-      darwin*)
-        alias gd='git diff | mate'
-        ;;
-      *)
-        alias gd='git diff'
-        ;;
-    esac
-else
-    alias gd="git diff | $EDITOR"
-fi
