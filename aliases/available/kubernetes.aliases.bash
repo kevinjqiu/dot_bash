@@ -1,0 +1,5 @@
+alias kalpha='export KUBECONFIG=$HOME/.kube/alpha'
+alias kgamma='export KUBECONFIG=$HOME/.kube/kube-config-gamma'
+alias kdelta='export KUBECONFIG=$HOME/.kube/kube-config-delta'
+alias kstaging='export KUBECONFIG=$HOME/.kube/kube-config-staging'
+alias kclear='export KUBECONFIG='
