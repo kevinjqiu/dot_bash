@@ -1,6 +1,11 @@
+cite 'about-kubernetes'
+about-alias 'common kubernetes abbreviations'
+
+alias k='kubectl'
 alias kalpha='export KUBECONFIG=$HOME/.kube/alpha'
 alias kgamma='export KUBECONFIG=$HOME/.kube/kube-config-gamma'
 alias kdelta='export KUBECONFIG=$HOME/.kube/kube-config-delta'
 alias kstaging='export KUBECONFIG=$HOME/.kube/kube-config-staging'
 alias kmonarch='export KUBECONFIG=$HOME/.kube/monarch'
 alias kclear='export KUBECONFIG='
+alias kgp='kubectl get pods'
