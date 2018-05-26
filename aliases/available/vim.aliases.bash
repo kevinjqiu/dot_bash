@@ -4,6 +4,7 @@ about-alias 'vim abbreviations'
 VIM=$(command -v vim)
 GVIM=$(command -v gvim)
 MVIM=$(command -v mvim)
+NVIM=$(command -v nvim)
 
 [[ -n $VIM ]] && alias v=$VIM
 
