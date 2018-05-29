@@ -156,51 +156,51 @@ cite ()
     done
 }
 
-draft ()
-{
-    about wraps command from history into a new function, default is last command
-    param 1: name to give function
-    param 2: optional history line number
-    example '$ ls'
-    example '$ draft list'
-    example '$ draft newfunc 1120  # wraps command at history line 1120 in newfunc()'
-    group composure
+#draft ()
+#{
+#    about wraps command from history into a new function, default is last command
+#    param 1: name to give function
+#    param 2: optional history line number
+#    example '$ ls'
+#    example '$ draft list'
+#    example '$ draft newfunc 1120  # wraps command at history line 1120 in newfunc()'
+#    group composure
 
-    typeset func=$1
-    typeset num=$2
-    typeset cmd
+#    typeset func=$1
+#    typeset num=$2
+#    typeset cmd
 
-    if [ -z "$func" ]; then
-        printf '%s\n' 'missing parameter(s)'
-        reference draft
-        return
-    fi
+#    if [ -z "$func" ]; then
+#        printf '%s\n' 'missing parameter(s)'
+#        reference draft
+#        return
+#    fi
 
-    # aliases bind tighter than function names, disallow them
-    if [ -n "$(LANG=C type -t $func 2>/dev/null | grep 'alias')" ]; then
-        printf '%s\n' "sorry, $(type -a $func). please choose another name."
-        return
-    fi
+#    # aliases bind tighter than function names, disallow them
+#    if [ -n "$(LANG=C type -t $func 2>/dev/null | grep 'alias')" ]; then
+#        printf '%s\n' "sorry, $(type -a $func). please choose another name."
+#        return
+#    fi
 
-    if [ -z "$num" ]; then
-        # parse last command from fc output
-        # some versions of 'fix command, fc' need corrective lenses...
-        typeset myopic=$(fc -ln -1 | grep draft)
-        typeset lines=1
-        if [ -n "$myopic" ]; then
-            lines=2
-        fi
-        cmd=$(fc -ln -$lines | head -1 | sed 's/^[[:blank:]]*//')
-    else
-        # parse command from history line number
-        cmd=$(eval "history | grep '^[[:blank:]]*$num' | head -1" | sed 's/^[[:blank:][:digit:]]*//')
-    fi
-    eval "$func() { $cmd; }"
-    typeset file=$(mktemp /tmp/draft.XXXX)
-    typeset -f $func > $file
-    transcribe $func $file draft
-    rm $file 2>/dev/null
-}
+#    if [ -z "$num" ]; then
+#        # parse last command from fc output
+#        # some versions of 'fix command, fc' need corrective lenses...
+#        typeset myopic=$(fc -ln -1 | grep draft)
+#        typeset lines=1
+#        if [ -n "$myopic" ]; then
+#            lines=2
+#        fi
+#        cmd=$(fc -ln -$lines | head -1 | sed 's/^[[:blank:]]*//')
+#    else
+#        # parse command from history line number
+#        cmd=$(eval "history | grep '^[[:blank:]]*$num' | head -1" | sed 's/^[[:blank:][:digit:]]*//')
+#    fi
+#    eval "$func() { $cmd; }"
+#    typeset file=$(mktemp /tmp/draft.XXXX)
+#    typeset -f $func > $file
+#    transcribe $func $file draft
+#    rm $file 2>/dev/null
+#}
 
 glossary ()
 {
