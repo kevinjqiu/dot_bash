@@ -89,6 +89,13 @@ function __powerline_clock_prompt {
   echo "$(date +"${THEME_CLOCK_FORMAT}")|${CLOCK_THEME_PROMPT_COLOR}"
 }
 
+function __powerline_kube_env_prompt {
+    if [[ ! -z "$KUBECONFIG" ]]; then
+        kenv=$(basename $KUBECONFIG)
+        echo "kube-env: $kenv|${KUBE_ENV_THEME_PROMPT_COLOR}"
+    fi
+}
+
 function __powerline_battery_prompt {
   local color=""
   local battery_status="$(battery_percentage 2> /dev/null)"
