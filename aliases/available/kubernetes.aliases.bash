@@ -9,7 +9,7 @@ alias kdbg='kubectl run -it --rm --restart=Never dbg --image=kevinjqiu/dbg bash'
 
 function kenv {
     if [[ "$#" != "1" ]]; then
-        echo "Usage: kenv|k8s <envfile>"
+        ls -1 $HOME/.kube
         return
     fi
     env=$1
