@@ -7,6 +7,12 @@ alias kclear='export KUBECONFIG='
 alias kgp='kubectl get pods'
 alias kdbg='kubectl run -it --rm --restart=Never dbg --image=kevinjqiu/dbg bash'
 
+function krun {
+    image=$1
+    cmd=${2:-bash}
+    kubectl run -it --rm --restart=Never --image=$1 -- $cmd
+}
+
 function kenv {
     if [[ "$#" != "1" ]]; then
         ls -1 $HOME/.kube
