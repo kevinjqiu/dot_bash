@@ -15,7 +15,26 @@ function krun {
 
 function kenv {
     if [[ "$#" != "1" ]]; then
-        ls -1 $HOME/.kube
+        envs=( $(IFS='\n' find $HOME/.kube -maxdepth 1 -type f | uniq | sort) )
+        counter=0
+        for f in ${envs[*]}; do
+            env=$(echo $f | rev | cut -d'/' -f1 | rev)
+            echo "[$((counter++))] $env"
+        done
+        echo "[x] Unset"
+        echo "---------------------"
+        read -p "Pick one: " choice
+        if [ "$choice" = "x" ]; then
+            cmd="export KUBECONFIG="
+            echo "$cmd"
+            eval $cmd
+        else
+            env=${envs[$choice]}
+            kubeconfig_path=$HOME/.kube/$env
+            cmd="export KUBECONFIG=$kubeconfig_path"
+            echo "$cmd"
+            eval $cmd
+        fi
         return
     fi
     env=$1
