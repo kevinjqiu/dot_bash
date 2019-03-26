@@ -29,8 +29,7 @@ function kenv {
             echo "$cmd"
             eval $cmd
         else
-            env=${envs[$choice]}
-            kubeconfig_path=$HOME/.kube/$env
+            kubeconfig_path=${envs[$choice]}
             cmd="export KUBECONFIG=$kubeconfig_path"
             echo "$cmd"
             eval $cmd
