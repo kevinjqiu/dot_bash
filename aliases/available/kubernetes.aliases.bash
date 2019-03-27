@@ -10,7 +10,7 @@ alias kdbg='krun kevinjqiu/dbg bash'
 function krun {
     image=$1
     cmd=${2:-bash}
-    kubectl run -it --rm --restart=Never --image=$1 -- $cmd
+    kubectl run -it --rm --restart=Never --image=$1 --image-pull-policy=Always -- $cmd
 }
 
 function kenv {
